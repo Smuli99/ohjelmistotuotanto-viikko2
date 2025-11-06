@@ -27,10 +27,11 @@ class StatisticsService:
             reverse=True,
             key=sort_by_points
         )
-
+        
+        # muutettu palauttamaan oikea määrä pelaajia
         result = []
         i = 0
-        while i <= how_many:
+        while i < how_many:
             result.append(sorted_players[i])
             i += 1
 
