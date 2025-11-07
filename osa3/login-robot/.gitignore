@@ -1,0 +1,6 @@
+# Robot reportit
+*.html
+*.xml
+
+poetry.lock
+**/__pycache__
