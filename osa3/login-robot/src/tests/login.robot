@@ -3,6 +3,14 @@ Resource  resource.robot
 Test Setup  Create User And Input Login Command
 
 *** Test Cases ***
+Login With Incorrect Password
+    Input Credentials  kalle  admin
+    Output Should Contain  Invalid username or password
+
+Login With Nonexistent Username
+    Input Credentials  hytosama  foobar
+    Output Should Contain  Invalid username or password
+
 Login With Correct Credentials
     Input Credentials  kalle  kalle123
     Output Should Contain  Logged in
