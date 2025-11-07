@@ -1,6 +1,7 @@
 # Robot reportit
 *.html
 *.xml
+*/__pycache__
 
 # Poetry
 poetry.lock
