@@ -1,5 +1,5 @@
 *** Settings ***
-Resource resouce.robot
+Resource  resouce.robot
 
 *** Test Cases ***
 Reset Counter After One Increment
