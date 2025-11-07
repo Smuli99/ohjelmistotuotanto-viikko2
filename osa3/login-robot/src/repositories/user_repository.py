@@ -1,4 +1,5 @@
 from entities.user import User
+import re
 
 
 class UserRepository:
@@ -24,10 +25,32 @@ class UserRepository:
         users = self.find_all()
 
         existing_user = self.find_by_username(user.username)
+        
+        if len(user.username) < 3:
+            raise Exception(
+                f"Username {user.username} must be at least 3 characters long"
+            )
+
+        if not re.match('^[a-z]{3,}$', user.username):
+            raise Exception(
+                f"Username {user.username} must only contain lowercase letters a to z"
+            ) 
+
+        existing_user = self.find_by_username(user.username)
 
         if existing_user:
             raise Exception(
                 f"User with username {user.username} already exists"
+            )
+
+        if len(user.password) < 8:
+            raise Exception(
+                f"Password must be at least 8 characters long"
+            )
+
+        if not re.match('^(?=.*[0-9\W]).{8,}$', user.password):
+            raise Exception(
+                f"Password must contain number or special character"
             )
 
         users.append(user)
