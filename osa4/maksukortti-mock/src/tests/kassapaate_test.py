@@ -2,6 +2,7 @@ import unittest
 from unittest.mock import Mock, ANY
 from kassapaate import Kassapaate, HINTA
 from maksukortti import Maksukortti
+import maksukortti
 
 
 class TestKassapaate(unittest.TestCase):
@@ -23,3 +24,17 @@ class TestKassapaate(unittest.TestCase):
         self.kassa.osta_lounas(maksukortti_mock)
 
         maksukortti_mock.osta.assert_not_called()
+
+    def test_kortille_ladataan_oikea_maara_rahaa_jos_summa_on_positiivinen(self):
+        maksukortti_mock = Mock()
+        
+        self.kassa.lataa(maksukortti_mock, 10)
+
+        maksukortti_mock.lataa.assert_called()
+
+    def test_kortille_ei_ladata_rahaa_jos_summa_on_negatiivinen(self):
+        maksukortti_mock = Mock()
+        
+        self.kassa.lataa(maksukortti_mock, -2)
+
+        maksukortti_mock.lataa.assert_not_called()
