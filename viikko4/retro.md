@@ -50,9 +50,11 @@
 **Kuvaus:**
 
 - Sprintin aikana esiin tulleet ongelmat, muutokset ja havainnot kirjataan kaikkien osallistujien kesken ja luokitellaan ne kolmeen kategoriaan:
-    1. Glad (positiiviset huomiot)
-    2. Sad (negatiiviset huomiot)
-    3. Mad (valitukset)
+
+    - Glad (positiiviset huomiot)
+    - Sad (negatiiviset huomiot)
+    - Mad (valitukset)
+
 - Osallistujat äänestävät sen jälkeen, mitä asioita käsitellään, ja ne käydään läpi eniten ääniä saanesta vähiten ääniä saaneeseen,
   kunnes kaikki asiat on käsitelty loppuun
 
