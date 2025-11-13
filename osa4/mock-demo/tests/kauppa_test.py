@@ -26,6 +26,8 @@ class TestKauppa(unittest.TestCase):
         pankki_mock = Mock()
         viitegeneraattori_mock = Mock(wraps=Viitegeneraattori())
 
+        viitegeneraattori_mock.uusi.return_value = 44
+
         kauppa = Kauppa(pankki_mock, viitegeneraattori_mock)
 
         kauppa.aloita_ostokset()
@@ -34,7 +36,7 @@ class TestKauppa(unittest.TestCase):
         kauppa.maksa("1111")
 
         # katsotaan, että ensimmäisen parametrin arvo on oikea
-        pankki_mock.maksa.assert_called_with("1111", ANY, ANY)
+        pankki_mock.maksa.assert_called_with("1111", 10, 44)
 
     def test_kutsutaan_pankkia_oikealla_tilinumerolla_ja_summalla(self):
         pankki_mock = Mock()
